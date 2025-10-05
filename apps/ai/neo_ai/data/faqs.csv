@@ -1,0 +1,4 @@
+id,question,answer,category
+1,How do I track my order?,Use the order portal under Account → Orders to follow live courier updates.,orders
+2,Can the assistant work without an LLM?,Yes, it falls back to top semantic FAQ matches and product specs.,assistant
+3,How does cart recovery work?,A signed deep link is emailed via Vercel Cron + Resend with optional coupons.,cart

@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply min-h-screen antialiased text-slate-100;
+  background: radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.35), transparent 55%),
+    radial-gradient(circle at 85% 15%, rgba(34, 211, 238, 0.25), transparent 50%),
+    radial-gradient(circle at 50% 85%, rgba(251, 191, 36, 0.18), transparent 55%),
+    linear-gradient(180deg, #040715 0%, #0f172a 55%, #020617 100%);
+}
+
+.glass-surface {
+  @apply bg-slate-900/55 backdrop-blur-3xl border border-white/10 shadow-glass;
+}
+
+.hero-grid {
+  background-image: theme('backgroundImage.mesh');
+}

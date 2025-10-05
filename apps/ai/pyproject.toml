@@ -1,0 +1,26 @@
+[project]
+name = "neo-ai-service"
+version = "0.1.0"
+description = "FastAPI microservice providing embeddings, retrieval, and sentiment analysis for the Neo Commerce platform."
+authors = [{ name = "Taran AI", email = "ai@demo.dev" }]
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi~=0.109",
+  "uvicorn[standard]~=0.24",
+  "pydantic~=2.5",
+  "pandas~=2.1",
+  "numpy~=1.26",
+  "scikit-learn~=1.3",
+  "sentence-transformers~=2.2",
+  "python-dotenv~=1.0",
+  "httpx~=0.25"
+]
+
+[project.optional-dependencies]
+test = ["pytest", "httpx"]
+
+[tool.uvicorn]
+app = "neo_ai.main:app"
+host = "0.0.0.0"
+port = 8000
+reload = true

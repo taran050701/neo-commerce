@@ -1,0 +1,30 @@
+# Node
+node_modules
+.pnpm-store
+.next
+.next-cache
+out
+coverage
+.vscode
+.idea
+.DS_Store
+.env*
+*.log
+yarn.lock
+package-lock.json
+
+# Python
+__pycache__
+*.pyc
+.venv
+.env
+migrations
+
+# Prisma
+prisma/dev.db
+prisma/dev.db-journal
+
+# Playwright
+playwright-report
+blob-report
+.trace
