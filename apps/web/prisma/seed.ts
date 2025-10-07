@@ -474,16 +474,52 @@ async function main() {
     });
   }
 
-  await db.kBArticle.upsert({
-    where: { slug: 'shipping-policy' },
-    update: {},
-    create: {
+  const kbArticles = [
+    {
       slug: 'shipping-policy',
       title: 'Shipping & fulfilment',
-      body: 'Orders ship within 48 hours. Express upgrades available at checkout.',
+      body: 'Orders ship within 48 hours. Express upgrades available at checkout. Tracking emails are sent immediately after parcel hand-off.',
       category: 'logistics',
     },
-  });
+    {
+      slug: 'returns-window',
+      title: 'Return & refund window',
+      body: 'We offer a 30-day return window from delivery. Items must be in original packaging. Refunds post to your bank within 5 business days after inspection.',
+      category: 'returns',
+    },
+    {
+      slug: 'warranty-coverage',
+      title: 'Warranty coverage',
+      body: 'All hardware ships with a 1-year limited warranty covering manufacturing defects. Extended plans can be added in the cart before checkout.',
+      category: 'support',
+    },
+    {
+      slug: 'size-guide',
+      title: 'Wearables size guide',
+      body: 'Use our printable sizing chart or enable the Neo Fit mobile app. Exchanges for incorrect sizing are free within 30 days.',
+      category: 'products',
+    },
+    {
+      slug: 'subscription-billing',
+      title: 'Subscription billing',
+      body: 'AI concierge and extended analytics subscriptions bill monthly on the purchase anniversary. Update payment details anytime from your account settings.',
+      category: 'billing',
+    },
+    {
+      slug: 'assistant-privacy',
+      title: 'AI assistant privacy',
+      body: 'The assistant stores only the last 30 days of conversation context tied to your workspace. You can purge history from Account → Privacy.',
+      category: 'privacy',
+    },
+  ];
+
+  for (const article of kbArticles) {
+    await db.kBArticle.upsert({
+      where: { slug: article.slug },
+      update: article,
+      create: article,
+    });
+  }
 
   console.log('Seed data loaded.');
 }
